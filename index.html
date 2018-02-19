@@ -4,19 +4,59 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Distraction Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <h1>Why Doing Homework Is So Difficult RPG</h1>
+
+    <div class="excuses">
+        <div id="netflix" data-attack-power="10" data-counter-attack-power="25" value="200">
+            Netflix
+            <div>
+                <img src="assets/images/netflix.png" alt="netflix" style="height: 50px">
+            </div>
+        </div>
+        <div id="tired" data-attack-power="8" data-counter-attack-power="20" value="175">
+            You're so tired
+            <div>
+                <img src="assets/images/tired.jpg" alt="tired" style="height: 50px">
+            </div>
+        </div>
+        <div id="book" data-attack-power="6" data-counter-attack-power="15" value="150">
+            That book you've been trying to finish
+            <div>
+                <img src="assets/images/book.png" alt="book" style="height: 50px">
+            </div>
+        </div>
+        <div id="outside" data-attack-power="4" data-counter-attack-power="10" value="125">
+            But it's a beautiful day outside
+            <div>
+                <img src="assets/images/day.jpg" alt="outside" style="height: 50px">
+            </div>
+        </div>
+    </div>
+    <h2>Your Excuse</h2>
+
+
+    <div class="enemies"></div>
+    <h2>Enemies Available To Attack</h2>
+
+
+    <h2>Fight Section</h2>
+    <button id="attack">Attack</button>
+
+
+    <h2>Defender</h2>
+    <div class="defender"></div>
 
 
 
-    
     <script src="assets/javascript/game.js"></script>
 </body>
 
