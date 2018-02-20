@@ -1,7 +1,19 @@
-.character {
+.character, .you {
     border: 1px solid black;
+    background: white;
     padding: 2px;
+    margin: 2px;
     text-align: center;
-    width: 100px;
+    width: 110px;
+    display: inline-block;
+}
+
+.enemy {
+    border: 1px solid black;
+    background: rgba(202, 28, 57, 0.788);
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    width: 110px;
     display: inline-block;
 }

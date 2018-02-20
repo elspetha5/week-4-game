@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     var attackPower = character.getAttribute("data-attack-power");
     var counterPower = character.getAttribute("data-data-counter-attack-power");
-    
+
     var excuse = document.getElementById("excuse");
     var enemies = document.getElementById("enemies");
     var attack = document.getElementById("attack");
@@ -16,15 +16,23 @@ $(document).ready(function () {
 
 
     //What happens when a character is clicked on?
-    //that character pops into the "Your Character" spot
-    if (excuse.innerHTML === "") {
-        $(".character").click(function () {
+    $(".character").on("click", function () {
+        if (excuse.innerHTML === "") {
             id = $(this).attr("id");
-            $("#" + id).appendTo("#excuse");
-        });
-    } else {};
 
-    //other characters pop into the "Enemies Available to Attack" spot
+            $("#" + id).removeClass("character");
+            $("#" + id).addClass("you");
+            $(".character").addClass("enemy");
+
+            //that character pops into the "Your Character" spot
+            $("#" + id).appendTo("#excuse");
+
+            //other characters pop into the "Enemies Available to Attack" spot
+            $(".character").appendTo("#enemies");
+        } else { };
+    });
+
+
     //change background color
 
     //What happens when an enemy character is picked?
