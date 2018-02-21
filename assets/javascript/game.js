@@ -41,13 +41,13 @@ $(document).ready(function () {
             //moves enemies into the "Enemies Available to Attack" spot
             $(".character").appendTo("#enemies");
 
-        //What happens when an enemy character is picked to fight?
+            //What happens when an enemy character is picked to fight?
         } else if (defenderSpot.innerHTML === "") {
             //moves picked defender into "Defender" spot
             $("#" + id).removeClass("enemy").addClass("defender");
             $("#" + id).appendTo("#defender");
 
-        } else {};
+        } else { };
     });
 
     //What happens when the Attack button is clicked?
@@ -60,45 +60,63 @@ $(document).ready(function () {
 
         defenderName = $(".defender").attr("name");
 
-        //Attack button becomes relevant only when "Defender" spot is filled
-        if (defenderSpot.innerHTML != "") {
-            you = $(".you").attr("data-attack-power");
-            youIncrease = 
+        you = $(".you").attr("data-attack-power");
+        youIncrease =
             defender = $(".defender").attr("data-counter-attack-power");
 
-            //NEED to put value in a variable maybe? to keep track of points they're at?
-            //HP goes down on you
-            $("#" + youSpan).text(youHP - defender);
+        //Attack button becomes relevant only when "Defender" spot is filled
+        if (defenderSpot.innerHTML != "") {
+            if (youHP > 0) {
+                //NEED to put value in a variable maybe? to keep track of points they're at?
+                //HP goes down on you
+                $("#" + youSpan).text(youHP - defender);
 
-            //HP goes down on defender
-            $("#" + defenderSpan).text(defenderHP - you);
+                //HP goes down on defender
+                $("#" + defenderSpan).text(defenderHP - you);
 
-            //your attack power increases by how much your base attack power is
-            //keep attack power at highest point achieved
+                //your attack power increases by how much your base attack power is
+                //keep attack power at highest point achieved
 
-            $("p").removeAttr("hidden");
-            $(".defenderName").text(defenderName);
-            //text underneath shows how many points you attacked enemy with
-            $("#youAttack").text();
-            //text underneath shows how many points enemy attacked you with
-            $("#defenderAttack").text(defender);
+                $("p").removeAttr("hidden");
+                $(".defenderName").text(defenderName);
+                //text underneath shows how many points you attacked enemy with
+                $("#youAttack").text();
+                //text underneath shows how many points enemy attacked you with
+                $("#defenderAttack").text(defender);
+
+             //What happens when enemy defeats you?
+            } else if (youHP <= 0) {
+                //text underneath says "GAME OVER"
+                $("#commentary2").hide();
+                $("#commentary").text("GAME OVER");
+                //restart button shows up
+                $("#reset").removeAttr("hidden");
+                //What happens when restart button is clicked?
+                $("#reset").on("click", function () {
+                    //page is reloaded
+                    location.reload();
+                });
+
+                //What happens when enemy is defeated?
+            } else if (defenderHP <= 0) {
+                //text underneath says you have defeated them and to choose another enemy
+                $("#commentary2").hide();
+                $("#commentary").text("You have defeated" + defenderName + "choose another enemy.");
+                //disappears from game
+                $(".defender").hide();
+
+            }
 
         } else { };
     });
 
-    
 
-    //What happens when enemy defeats you?
-    //text underneath says "GAME OVER"
-    //restart button shows up
-    //Attack button can't be clicked any more
 
-    //What happens when restart button is clicked?
-    //page is refreshed
 
-    //What happens when enemy is defeated?
-    //disappears from game
-    //text underneath says you have defeated them and to choose another enemy
+
+
+
+
 
     //What happens when you win?
     //text underneath says "You Won!! GAME OVER!!!"
