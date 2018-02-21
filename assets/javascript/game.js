@@ -1,89 +1,92 @@
 $(document).ready(function () {
     var start = document.getElementById("start");
-    //var character = document.querySelectorAll("netflix, tired, book, outside");
-
-    //var attackPower = character[i].getAttribute("data-attack-power");
-    //var counterPower = character.getAttribute("data-data-counter-attack-power");
-
     var excuse = document.getElementById("excuse");
     var enemies = document.getElementById("enemies");
-    //var attackBtn = document.getElementById("attack");
     var defenderSpot = document.getElementById("defender");
 
+    //stores id of character clicked on
     var id;
+    //stores your initial attack power
     var you;
+    //stores your attack power after each attack
+    var youIncrease;
+    //stores defender counter attack power
     var defender;
+    //stores the name of the current defender
+    var defenderName;
+    //stores the id of the span where your HP is displayed
     var youSpan;
+    //stores the id of the span where defender counter attack power is displayed
     var defenderSpan;
+    //stores the text inside span displaying your HP
     var youHP;
+    //stores the text inside span displaying defender HP
     var defenderHP;
-
-    function HP(x) {
-        var value = idHP.attr("value");
-        idHP.text(value);
-    };
 
 
     //How do we start the game?
     $(".character").on("click", function () {
-        //stores id of character clicked on
         id = $(this).attr("id");
 
         //How do we choose our character?
         if (excuse.innerHTML === "") {
-            //changes classes of us and enemies
+            //change classes of you and enemies
             $("#" + id).removeClass("character").addClass("you");
             $(".character").addClass("enemy");
 
 
-            //our character pops into the "Your Excuse" spot
+            //moves you into the "Your Excuse" spot
             $("#" + id).appendTo("#excuse");
 
-            //other characters pop into the "Enemies Available to Attack" spot
+            //moves enemies into the "Enemies Available to Attack" spot
             $(".character").appendTo("#enemies");
 
-            //What happens when an enemy character is picked?
-            //that character pops into "Defender" spot
+        //What happens when an enemy character is picked to fight?
         } else if (defenderSpot.innerHTML === "") {
+            //moves picked defender into "Defender" spot
             $("#" + id).removeClass("enemy").addClass("defender");
             $("#" + id).appendTo("#defender");
-        }
+
+        } else {};
     });
 
-
+    //What happens when the Attack button is clicked?
     $("#attack").on("click", function () {
         youSpan = $(".you").find("span").attr("id")
         defenderSpan = $(".defender").find("span").attr("id");
-        console.log(youSpan, defenderSpan);
 
-        youHP = $("#" + youSpan).attr("value");
-        defenderHP = $("#" + defenderSpan).attr("value");
-        console.log(youHP, defenderHP);
+        youHP = $("#" + youSpan).text();
+        defenderHP = $("#" + defenderSpan).text();
+
+        defenderName = $(".defender").attr("name");
 
         //Attack button becomes relevant only when "Defender" spot is filled
         if (defenderSpot.innerHTML != "") {
-            console.log("clicked attack");
-
             you = $(".you").attr("data-attack-power");
+            youIncrease = 
             defender = $(".defender").attr("data-counter-attack-power");
-            console.log(you, defender);
 
+            //NEED to put value in a variable maybe? to keep track of points they're at?
+            //HP goes down on you
             $("#" + youSpan).text(youHP - defender);
+
+            //HP goes down on defender
             $("#" + defenderSpan).text(defenderHP - you);
+
+            //your attack power increases by how much your base attack power is
+            //keep attack power at highest point achieved
+
+            $("p").removeAttr("hidden");
+            $(".defenderName").text(defenderName);
+            //text underneath shows how many points you attacked enemy with
+            $("#youAttack").text();
+            //text underneath shows how many points enemy attacked you with
+            $("#defenderAttack").text(defender);
 
         } else { };
     });
 
-
-    //What happens when the Attack button is clicked?
-    //text underneath shows how many points you attacked enemy with
-    //text underneath shows how many points enemy attacked you with
-    //HP goes down on you
-    //HP goes down on character
-    //your attack power increases by how much your base attack power is
-    //store that in a variable
-    //keep attack power at highest point achieved
-    //can only attack when an enemy is in the "Defender" spot
+    
 
     //What happens when enemy defeats you?
     //text underneath says "GAME OVER"
