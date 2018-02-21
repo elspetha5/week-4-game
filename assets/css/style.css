@@ -17,3 +17,13 @@
     width: 110px;
     display: inline-block;
 }
+
+.defender {
+    color: white;
+    background: black;
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    width: 110px;
+    display: inline-block;
+}

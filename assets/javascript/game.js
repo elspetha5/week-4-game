@@ -1,43 +1,64 @@
 $(document).ready(function () {
     var start = document.getElementById("start");
-    var character = document.getElementById("netflix");
+    //var character = document.querySelectorAll("netflix, tired, book, outside");
 
-    var attackPower = character.getAttribute("data-attack-power");
-    var counterPower = character.getAttribute("data-data-counter-attack-power");
+    //var attackPower = character[i].getAttribute("data-attack-power");
+    //var counterPower = character.getAttribute("data-data-counter-attack-power");
 
     var excuse = document.getElementById("excuse");
     var enemies = document.getElementById("enemies");
-    var attack = document.getElementById("attack");
-    var defender = document.getElementById("defender");
+    //var attackBtn = document.getElementById("attack");
+    var defenderSpot = document.getElementById("defender");
 
     var id;
+    var you;
+    var defender;
+    var youHP;
+    var defenderHP;
 
-    console.log(attackPower);
+    var hp = document.getElementById("hp");
+    var value = $(".hp").attr("value");
+    hp.innerHTML = value;
 
-
-    //What happens when a character is clicked on?
+    //How do we start the game?
     $(".character").on("click", function () {
-        if (excuse.innerHTML === "") {
-            id = $(this).attr("id");
+        //stores id of character clicked on
+        id = $(this).attr("id");
 
-            $("#" + id).removeClass("character");
-            $("#" + id).addClass("you");
+        //How do we choose our character?
+        if (excuse.innerHTML === "") {
+            //changes classes of us and enemies
+            $("#" + id).removeClass("character").addClass("you");
             $(".character").addClass("enemy");
 
-            //that character pops into the "Your Character" spot
+            //our character pops into the "Your Excuse" spot
             $("#" + id).appendTo("#excuse");
 
             //other characters pop into the "Enemies Available to Attack" spot
             $(".character").appendTo("#enemies");
-        } else { };
+
+            //What happens when an enemy character is picked?
+            //that character pops into "Defender" spot
+        } else if (defenderSpot.innerHTML === "") {
+            $("#" + id).removeClass("enemy").addClass("defender");
+            $("#" + id).appendTo("#defender");
+        }
     });
 
+    $("#attack").on("click", function () {
+        if (defenderSpot.innerHTML != "") {
+            console.log("clicked attack");
 
-    //change background color
+            you = $(".you").attr("data-attack-power");
+            defender = $(".defender").attr("data-counter-attack-power");
+            console.log(you, defender);
 
-    //What happens when an enemy character is picked?
-    //that character pops into "Defender" spot
-    //change bakcground color
+            youHP = $(".you").innerHTML;
+            defenderHP = $(".defender")
+
+            $(".you").$("#hp").innerHTML - defender;
+        } else { };
+    });
     //Attack button becomes relevant
 
     //What happens when the Attack button is clicked?
