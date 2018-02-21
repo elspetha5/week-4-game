@@ -41,11 +41,12 @@ $(document).ready(function () {
             //moves enemies into the "Enemies Available to Attack" spot
             $(".character").appendTo("#enemies");
 
-            //What happens when an enemy character is picked to fight?
+        //What happens when an enemy character is picked to fight?
         } else if (defenderSpot.innerHTML === "") {
             //moves picked defender into "Defender" spot
             $("#" + id).removeClass("enemy").addClass("defender");
             $("#" + id).appendTo("#defender");
+
 
         } else { };
     });
@@ -61,12 +62,12 @@ $(document).ready(function () {
         defenderName = $(".defender").attr("name");
 
         you = $(".you").attr("data-attack-power");
-        youIncrease =
-            defender = $(".defender").attr("data-counter-attack-power");
+        // youIncrease =
+        defender = $(".defender").attr("data-counter-attack-power");
 
         //Attack button becomes relevant only when "Defender" spot is filled
         if (defenderSpot.innerHTML != "") {
-            if (youHP > 0) {
+            if (youHP > 0 && defenderHP > 0) {
                 //NEED to put value in a variable maybe? to keep track of points they're at?
                 //HP goes down on you
                 $("#" + youSpan).text(youHP - defender);
@@ -78,13 +79,17 @@ $(document).ready(function () {
                 //keep attack power at highest point achieved
 
                 $("p").removeAttr("hidden");
-                $(".defenderName").text(defenderName);
-                //text underneath shows how many points you attacked enemy with
-                $("#youAttack").text();
-                //text underneath shows how many points enemy attacked you with
-                $("#defenderAttack").text(defender);
+                $("#commentary").text("You attacked " + defenderName + " for " + " 30 " + " damage.");
+                $("#commentary2").show().text(defenderName + " attacked you back for " + defender + ".");
 
-             //What happens when enemy defeats you?
+
+                // $(".defenderName").text(defenderName);
+                //text underneath shows how many points you attacked enemy with
+                // $("#youAttack").text();
+                //text underneath shows how many points enemy attacked you with
+                // $("#defenderAttack").text(defender);
+
+            //What happens when enemy defeats you?
             } else if (youHP <= 0) {
                 //text underneath says "GAME OVER"
                 $("#commentary2").hide();
@@ -97,29 +102,29 @@ $(document).ready(function () {
                     location.reload();
                 });
 
-                //What happens when enemy is defeated?
+            //What happens when enemy is defeated?
             } else if (defenderHP <= 0) {
                 //text underneath says you have defeated them and to choose another enemy
                 $("#commentary2").hide();
-                $("#commentary").text("You have defeated" + defenderName + "choose another enemy.");
+                $("#commentary").text("You have defeated " + defenderName + " choose another enemy.");
                 //disappears from game
-                $(".defender").hide();
+                $(".defender").hide().appendTo("#defeatedEnemies");
 
             }
 
+        //What happens when you win?
+        } else if (youHP > 0 && enemies.innerHTML === "" && defenderSpot.innerHTML === "") {
+            $("#commentary2").hide();
+            //text underneath says "You Won!! GAME OVER!!!"    
+            $("#commentary").text("YOU WON!!!! GAME OVER");
+            //restart button shows up
+            $("#reset").removeAttr("hidden");
+            //What happens when restart button is clicked?
+            $("#reset").on("click", function () {
+                //page is reloaded
+                location.reload();
+            });
         } else { };
     });
-
-
-
-
-
-
-
-
-
-    //What happens when you win?
-    //text underneath says "You Won!! GAME OVER!!!"
-    //restart button appears
 
 });
