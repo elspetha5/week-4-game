@@ -13,19 +13,15 @@ $(document).ready(function () {
     var id;
     var you;
     var defender;
+    var youSpan;
+    var defenderSpan;
     var youHP;
     var defenderHP;
 
     function HP(x) {
-        var value = $(".healthPoints").attr("value");
-        $(".healthPoints").text(value);
+        var value = idHP.attr("value");
+        idHP.text(value);
     };
-
-    HP("#netflix");
-    HP("#tired");
-    HP("#book");
-    HP("#outside");
-
 
 
     //How do we start the game?
@@ -38,6 +34,7 @@ $(document).ready(function () {
             //changes classes of us and enemies
             $("#" + id).removeClass("character").addClass("you");
             $(".character").addClass("enemy");
+
 
             //our character pops into the "Your Excuse" spot
             $("#" + id).appendTo("#excuse");
@@ -53,7 +50,17 @@ $(document).ready(function () {
         }
     });
 
+
     $("#attack").on("click", function () {
+        youSpan = $(".you").find("span").attr("id")
+        defenderSpan = $(".defender").find("span").attr("id");
+        console.log(youSpan, defenderSpan);
+
+        youHP = $("#" + youSpan).attr("value");
+        defenderHP = $("#" + defenderSpan).attr("value");
+        console.log(youHP, defenderHP);
+
+        //Attack button becomes relevant only when "Defender" spot is filled
         if (defenderSpot.innerHTML != "") {
             console.log("clicked attack");
 
@@ -61,13 +68,12 @@ $(document).ready(function () {
             defender = $(".defender").attr("data-counter-attack-power");
             console.log(you, defender);
 
-            youHP = $(".you").innerHTML;
-            defenderHP = $(".defender")
+            $("#" + youSpan).text(youHP - defender);
+            $("#" + defenderSpan).text(defenderHP - you);
 
-            $(".you").$("#hp").innerHTML - defender;
         } else { };
     });
-    //Attack button becomes relevant
+
 
     //What happens when the Attack button is clicked?
     //text underneath shows how many points you attacked enemy with
