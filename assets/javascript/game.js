@@ -16,9 +16,17 @@ $(document).ready(function () {
     var youHP;
     var defenderHP;
 
-    var hp = document.getElementById("hp");
-    var value = $(".hp").attr("value");
-    hp.innerHTML = value;
+    function HP(x) {
+        var value = $(".healthPoints").attr("value");
+        $(".healthPoints").text(value);
+    };
+
+    HP("#netflix");
+    HP("#tired");
+    HP("#book");
+    HP("#outside");
+
+
 
     //How do we start the game?
     $(".character").on("click", function () {
