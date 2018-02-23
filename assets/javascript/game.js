@@ -7,9 +7,9 @@ $(document).ready(function () {
     //stores id of character clicked on
     var id;
     //stores your initial attack power
-    var you;
+    var youBase;
     //stores your attack power after each attack
-    var youIncrease;
+    var youCurrent = 0;
     //stores defender counter attack power
     var defender;
     //stores the name of the current defender
@@ -22,7 +22,6 @@ $(document).ready(function () {
     var youHP;
     //stores the text inside span displaying defender HP
     var defenderHP;
-
 
 
 
@@ -55,6 +54,7 @@ $(document).ready(function () {
 
     //What happens when the Attack button is clicked?
     $("#attack").on("click", function () {
+        console.log("attack click")
         youSpan = $(".you").find("span").attr("id")
         defenderSpan = $(".defender").find("span").attr("id");
 
@@ -63,19 +63,19 @@ $(document).ready(function () {
 
         defenderName = $(".defender").attr("name");
 
-        you = $(".you").attr("data-attack-power");
-        // youIncrease =
+        youBase = $(".you").attr("data-attack-power");
+        youCurrent = parseInt(youCurrent) + parseInt(youBase); 
         defender = $(".defender").attr("data-counter-attack-power");
+        console.log(youBase, youCurrent)
 
         //Attack button becomes relevant only when "Defender" spot is filled
         if (defenderSpot.innerHTML != "") {
             if (youHP > 0 && defenderHP > 0) {
-                //NEED to put value in a variable maybe? to keep track of points they're at?
                 //HP goes down on you
                 $("#" + youSpan).text(youHP - defender);
 
                 //HP goes down on defender
-                $("#" + defenderSpan).text(defenderHP - you);
+                $("#" + defenderSpan).text(defenderHP - youCurrent);
 
                 //your attack power increases by how much your base attack power is
                 //keep attack power at highest point achieved
@@ -113,7 +113,6 @@ $(document).ready(function () {
 
 
     $("body").on("click", function () {
-        console.log("body click");
         if (youHP > 0 && enemies.innerHTML === "" && defenderSpot.innerHTML === "") {
             $("#commentary2").hide();
             //text underneath says "You Won!! GAME OVER!!!"    
@@ -129,3 +128,6 @@ $(document).ready(function () {
     });
 
 });
+
+//set it in 2 variables
+// at start have base attack power and current attack power; current += base
