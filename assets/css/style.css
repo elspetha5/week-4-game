@@ -1,3 +1,41 @@
+body {
+    padding: 20px;
+    margin: 20px;
+}
+
+h1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 30px;
+    padding: 10px 30px;
+    margin: 10px 0px 30px 0px;
+    border-bottom: 2px dotted red;
+    text-align: right;
+    font-weight: bold;
+}
+
+div {
+    margin: 10px;
+}
+
+h2 {
+    margin: 10px 5px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    margin: 10px;
+}
+
+#howToStart {
+    color: red;
+}
+
+button {
+    margin: 10px;
+}
+
 .character, .you {
     border: 1px solid black;
     background: white;

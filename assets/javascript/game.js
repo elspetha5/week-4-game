@@ -28,6 +28,7 @@ $(document).ready(function () {
     //How do we start the game?
     $(".character").on("click", function () {
         id = $(this).attr("id");
+        $("#howToStart").hide();
 
         //How do we choose our character?
         if (excuse.innerHTML === "") {
@@ -81,7 +82,7 @@ $(document).ready(function () {
                 //keep attack power at highest point achieved
 
                 $("p").removeAttr("hidden");
-                $("#commentary").text("You attacked " + defenderName + " for " + " 30 " + " damage.");
+                $("#commentary").text("You attacked " + defenderName + " for " + youCurrent + " damage.");
                 $("#commentary2").show().text(defenderName + " attacked you back for " + defender + ".");
 
                 //What happens when enemy defeats you?
