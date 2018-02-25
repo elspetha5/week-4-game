@@ -1,29 +1,42 @@
 .bg {
-    margin-top: 50px;
     background-image: url("../images/paper.jpg");
-    height: 100%;
+    min-height: 1000px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: auto;
     
+}
+.align {
+    margin-left: 6.5%;
+    float: left;
+}
+
+.align2 {
+    float: left;
+    margin-left: 20px;
 }
 
 .content {
     padding: 20px;
-    margin: 20px 20px 500px;
-    background: rgba(255, 255, 255, 0.699);
-    border: 2px dotted rgb(235, 235, 235);
-    height: 100%;
+    margin: 20px 0px 10px;
+    background: rgba(255, 255, 255, 0.89);
+    border: 2px dotted rgb(202, 202, 202);
+    height: 150px;
+    float: left;
+    width: 600px;
+    clear: both;
 }
 
 h1 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 30px;
-    padding: 10px 30px;
-    margin: 20px 20px 60px 20px;
+    padding: 30px 30px 10px;
+    margin: 20px;
     border-bottom: 2px solid red;
     text-align: right;
     font-weight: bold;
+    background: white;
 }
 
 div {
@@ -32,17 +45,14 @@ div {
 
 h2 {
     margin: 10px 5px;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 20px;
     font-weight: bold;
 }
 
 p {
-    margin: 10px;
-}
-
-p {
     color: red;
+    font-family: 'Oswald', sans-serif;
 }
 
 button {
@@ -77,4 +87,10 @@ button {
     text-align: center;
     width: 110px;
     display: inline-block;
+}
+
+.red {
+    background: red;
+    color: white;
+    border: 7px solid red;
 }

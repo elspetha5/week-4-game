@@ -29,6 +29,7 @@ $(document).ready(function () {
     $(".character").on("click", function () {
         id = $(this).attr("id");
         $("#howToStart").hide();
+        $("#hero").removeAttr("hidden");
 
         //How do we choose our character?
         if (excuse.innerHTML === "") {
@@ -48,6 +49,7 @@ $(document).ready(function () {
             //moves picked defender into "Defender" spot
             $("#" + id).removeClass("enemy").addClass("defender");
             $("#" + id).appendTo("#defender");
+            $("#attack").addClass("red");
 
 
         } else { };
