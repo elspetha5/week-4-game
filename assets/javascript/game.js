@@ -57,7 +57,6 @@ $(document).ready(function () {
 
     //What happens when the Attack button is clicked?
     $("#attack").on("click", function () {
-        console.log("attack click")
         youSpan = $(".you").find("span").attr("id")
         defenderSpan = $(".defender").find("span").attr("id");
 
@@ -69,7 +68,6 @@ $(document).ready(function () {
         youBase = $(".you").attr("data-attack-power");
         youCurrent = parseInt(youCurrent) + parseInt(youBase); 
         defender = $(".defender").attr("data-counter-attack-power");
-        console.log(youBase, youCurrent)
 
         //Attack button becomes relevant only when "Defender" spot is filled
         if (defenderSpot.innerHTML != "") {
