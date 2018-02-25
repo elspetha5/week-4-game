@@ -91,7 +91,8 @@ $(document).ready(function () {
             } else if (youHP <= 0) {
                 //text underneath says "GAME OVER"
                 $("#commentary2").hide();
-                $("#commentary").text("GAME OVER");
+                $("#attack").hide();
+                $("#commentary").html("<h2>GAME OVER</h2>");
                 //restart button shows up
                 $("#reset").removeAttr("hidden");
                 //What happens when restart button is clicked?
@@ -117,8 +118,9 @@ $(document).ready(function () {
     $("body").on("click", function () {
         if (youHP > 0 && enemies.innerHTML === "" && defenderSpot.innerHTML === "") {
             $("#commentary2").hide();
+            $("#attack").hide();
             //text underneath says "You Won!! GAME OVER!!!"    
-            $("#commentary").text("YOU WON!!!! GAME OVER");
+            $("#commentary").html("<h2>YOU WON!!! GAME OVER.</h2>");
             //restart button shows up
             $("#reset").removeAttr("hidden");
             //What happens when restart button is clicked?

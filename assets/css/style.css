@@ -55,17 +55,13 @@ p {
     font-family: 'Oswald', sans-serif;
 }
 
-button {
-    margin: 10px;
-}
-
 .character, .you {
     border: 1px solid black;
     background: white;
     padding: 2px;
     margin: 2px;
     text-align: center;
-    width: 110px;
+    width: 120px;
     display: inline-block;
 }
 
@@ -75,7 +71,7 @@ button {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    width: 110px;
+    width: 120px;
     display: inline-block;
 }
 
@@ -85,7 +81,7 @@ button {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    width: 110px;
+    width: 120px;
     display: inline-block;
 }
 
@@ -93,4 +89,8 @@ button {
     background: red;
     color: white;
     border: 7px solid red;
+}
+
+button {
+    margin: 0px 15px 20px;
 }
