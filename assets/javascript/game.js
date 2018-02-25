@@ -108,11 +108,10 @@ $(document).ready(function () {
 
             }
 
-            //What happens when you win?
         } else { };
     });
 
-
+    //What happens when you win?
     $("body").on("click", function () {
         if (youHP > 0 && enemies.innerHTML === "" && defenderSpot.innerHTML === "") {
             $("#commentary2").hide();
