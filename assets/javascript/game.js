@@ -130,6 +130,3 @@ $(document).ready(function () {
     });
 
 });
-
-//set it in 2 variables
-// at start have base attack power and current attack power; current += base
