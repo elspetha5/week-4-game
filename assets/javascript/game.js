@@ -35,25 +35,35 @@ $(document).ready(function () {
         if (excuse.innerHTML === "") {
             //change classes of you and enemies
             $("#" + id).removeClass("character").addClass("you");
-            $(".character").addClass("enemy");
+            $(".character").removeClass("character").addClass("enemy");
 
 
             //moves you into the "Your Excuse" spot
             $("#" + id).appendTo("#excuse");
 
             //moves enemies into the "Enemies Available to Attack" spot
-            $(".character").appendTo("#enemies");
+            $(".enemy").appendTo("#enemies");
 
             //What happens when an enemy character is picked to fight?
-        } else if (defenderSpot.innerHTML === "") {
-            //moves picked defender into "Defender" spot
-            $("#" + id).removeClass("enemy").addClass("defender");
-            $("#" + id).appendTo("#defender");
-            $("#attack").addClass("red");
+            //} else if (defenderSpot.innerHTML === "") {
+            //    //moves picked defender into "Defender" spot
+            //    $("#" + id).removeClass("enemy").addClass("defender");
+            //    $("#" + id).appendTo("#defender");
+            //    $("#attack").addClass("red");
 
 
         } else { };
     });
+
+    function defenderize() {
+        id = $(this).attr("id");
+        console.log("clicked enemy");
+        if (defenderSpot.innerHTML === "") {
+            $("#" + id).removeClass("enemy").addClass("defender");
+            $("#" + id).appendTo("#defender");
+            $("#attack").addClass("red");
+        }
+    };
 
     //What happens when the Attack button is clicked?
     $("#attack").on("click", function () {
@@ -66,7 +76,7 @@ $(document).ready(function () {
         defenderName = $(".defender").attr("name");
 
         youBase = $(".you").attr("data-attack-power");
-        youCurrent = parseInt(youCurrent) + parseInt(youBase); 
+        youCurrent = parseInt(youCurrent) + parseInt(youBase);
         defender = $(".defender").attr("data-counter-attack-power");
 
         //Attack button becomes relevant only when "Defender" spot is filled
@@ -128,5 +138,7 @@ $(document).ready(function () {
             });
         }
     });
+
+    $(document).on("click", ".enemy", defenderize);
 
 });
