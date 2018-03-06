@@ -44,20 +44,12 @@ $(document).ready(function () {
             //moves enemies into the "Enemies Available to Attack" spot
             $(".enemy").appendTo("#enemies");
 
-            //What happens when an enemy character is picked to fight?
-            //} else if (defenderSpot.innerHTML === "") {
-            //    //moves picked defender into "Defender" spot
-            //    $("#" + id).removeClass("enemy").addClass("defender");
-            //    $("#" + id).appendTo("#defender");
-            //    $("#attack").addClass("red");
-
 
         } else { };
     });
 
     function defenderize() {
         id = $(this).attr("id");
-        console.log("clicked enemy");
         if (defenderSpot.innerHTML === "") {
             $("#" + id).removeClass("enemy").addClass("defender");
             $("#" + id).appendTo("#defender");
@@ -87,9 +79,6 @@ $(document).ready(function () {
 
                 //HP goes down on defender
                 $("#" + defenderSpan).text(defenderHP - youCurrent);
-
-                //your attack power increases by how much your base attack power is
-                //keep attack power at highest point achieved
 
                 $("p").removeAttr("hidden");
                 $("#commentary").text("You attacked " + defenderName + " for " + youCurrent + " damage.");
