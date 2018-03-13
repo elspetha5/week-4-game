@@ -9,5 +9,5 @@ This game is all about which distraction is the strongest enemy of doing real wo
 1. Pick a distraction
 2. From the enemy list, pick the first defender
 3. Attack defender until either his health points equal 0, or yours do
-  1. Notice that your attack power increases with every attack, while your defender's stays the same
-4. Pick wisely, each character has a different attack power, so you'll have to be strategic if you want to win
+4. Notice that your attack power increases with every attack, while your defender's stays the same
+5. Pick wisely, each character has a different attack power, so you'll have to be strategic if you want to win
